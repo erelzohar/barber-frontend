@@ -1,0 +1,46 @@
+.AdminPage {
+    background: #ffffff;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.AdminPage>* {
+    margin: 1rem 1rem 3rem 1rem;
+}
+
+.vacation-line {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.LinesList {
+    height: 100%;
+    background: #fff;
+}
+
+.AdminLineCard {
+    direction: rtl;
+    margin: 1rem 5vw 1rem 5vw;
+    padding: 1rem;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    font-size: large;
+    text-align: center;
+    transition: all 300ms;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+
+}
+.dayDiv{
+    margin-bottom: 1rem;
+}
