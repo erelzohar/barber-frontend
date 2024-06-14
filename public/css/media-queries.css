@@ -352,16 +352,16 @@
 
    /* header styles
    -------------------------------------------------------------------- */
-   header .banner { padding-top: 24px; }
+   header .banner { padding-top: 20px; }
    header .banner-text h1 {
       font: 40px/1.1em 'opensans-bold', sans-serif;      
       margin: 0 auto 24px auto;
    }
    header .banner-text h3 {
-      font: 14px/1.9em 'librebaskerville-regular', sans-serif;
+      font-size: x-large !important;
       width: 90%;
+      line-height: 2.5rem !important;
    }
-  
    /* header social links */
    header .social { font-size: 20px;}
    header .social li { margin: 0 6px; }

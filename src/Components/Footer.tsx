@@ -37,8 +37,8 @@ function Footer (){
           </Fade>
 
           <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
+            <a className="smoothscroll" title="Back to Top" href="#header">
+              <i className="fa fa-chevron-up"></i>
             </a>
           </div>
         </div>

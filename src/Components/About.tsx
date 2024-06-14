@@ -2,7 +2,6 @@ import {Fade} from "react-awesome-reveal";
 
 function About () {
     const profilepic = "images/ariel-logo.png";
-    const email = "abcd@gmail.com";
 
     return (
       <section id="about">
@@ -22,17 +21,17 @@ function About () {
                 <div className="columns">
                   <ul className="social-links">
                     <li key='facebook'>
-                      <a href='http://facebook.com'>
+                      <a href='https://www.facebook.com/profile.php?id=100033295129831'>
                         <i className='fa fa-facebook'></i>
                       </a>
                     </li>
                     <li key='whatsapp'>
-                      <a href='#'>
+                      <a href='https://wa.me/972503713852'>
                         <i className='fa fa-whatsapp'></i>
                       </a>
                     </li>
                     <li key='instagram'>
-                      <a href='http://instagram.com/'>
+                      <a href='https://www.instagram.com/ariel_edri.3/'>
                         <i className='fa fa-instagram'></i>
                       </a>
                     </li>
@@ -44,17 +43,14 @@ function About () {
                     <span>אריאל אדרי</span>
                     <br />
                     <span>
-                      אברהם הלל 55
+                      חטיבת גולני 6
                       <br />
                       רמלה
                     </span>
                     <br />
                     <span><a href="tel:+972537131173">053-713-1173</a></span>
-                    <br />
-                    <span>{email}</span>
                   </p>
                 </div>
-
               </div>
             </div>
           </div>

@@ -72,6 +72,7 @@ function Contact() {
                     required
                     type="text"
                     size={35}
+                    dir="ltr"
                     id="contactEmail"
                     name="contactEmail"
                     onChange={(e) => { setPhone(e.target.value) }}
@@ -114,8 +115,9 @@ function Contact() {
               <p className="address">
                 אריאל אדרי
                 <br />
-                אברהם הלל 55<br />
-                רמלה,ישראל
+                חטיבת גולני 6
+                <br />
+                רמלה , ישראל
                 <br />
                 <span>053-713-1173</span>
               </p>

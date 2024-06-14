@@ -5,19 +5,19 @@ import Typewriter from 'typewriter-effect';
 function Header () {
 
     return (
-      <header id="home">
+      <header id="header">
         <ParticlesBg type="circle" color= "#FFD700" bg={true} />
         <nav id="nav-wrap">
           <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
             Show navigation
           </a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">
+          <a className="mobile-btn" href="#header" title="Hide navigation">
             Hide navigation
           </a>
 
           <ul id="nav" className="nav">
             <li className="current">
-              <a className="smoothscroll" href="#home">
+              <a className="smoothscroll" href="#header">
                 דף הבית
               </a>
             </li>
@@ -74,7 +74,7 @@ function Header () {
 
         <p className="scrolldown">
           <a className="smoothscroll" href="#about">
-            <i className="icon-down-circle"></i>
+            <i className="fa fa-chevron-down"></i>
           </a>
         </p>
       </header>

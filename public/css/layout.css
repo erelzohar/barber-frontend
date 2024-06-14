@@ -378,6 +378,7 @@ h1 {
 /* Portfolio Content */
 #portfolio-wrapper .columns { margin-bottom: 36px; }
 .portfolio-item .item-wrap {
+   margin: auto;
    background:none;
    overflow: hidden;
    position: relative;
@@ -386,6 +387,7 @@ h1 {
 	-o-transition: all 0.3s ease-in-out;
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
+   width: max-content;
 }
 
 

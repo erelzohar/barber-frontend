@@ -11,6 +11,8 @@ function DatePickerComponent(props: DatePickerProps) {
             shouldDisableDate={(day) => day.day() === 6}
             disablePast
             showDaysOutsideCurrentMonth
+            maxDate={dayjs().add(6,'month')}
+            view="day"
             sx={{
                 direction: 'ltr', '.MuiDateCalendar-root': {
                     color: '#000000',
@@ -19,6 +21,7 @@ function DatePickerComponent(props: DatePickerProps) {
                     borderColor: '#c0d6e4',
                     border: '2px solid #c0d6e4',
                     backgroundColor: '#F0F8FF',
+                    direction:'rtl'
                 }
             }}
             value={dayjs(props.epochDate)}

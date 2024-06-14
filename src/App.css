@@ -125,7 +125,11 @@
 }
 
 .ModalImage>img {
+    display: block;
     width: 100%;
+    /* max-width: 100%; */
+    /* min-width: max-content; */
     height: 230px;
+    max-width: 70vw;
     border-radius: 7px;
 }

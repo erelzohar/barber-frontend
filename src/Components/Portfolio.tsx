@@ -1,23 +1,16 @@
 import { Fade } from "react-awesome-reveal";
 import ModalImage from "./ModalImage";
 
-let id = 0;
 function Portfolio(): JSX.Element {
   const data = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg","09.jpg","10.jpg","11.jpg","12.jpg"  ]
 
-  const projects = data.map(function (imgName) {
+  const projects = data.map(function (imgName,index) {
     let projectImage = "images/portfolio/" + imgName;
 
     return (
-      <div key={id++} className="columns portfolio-item">
+      <div key={index} className="columns portfolio-item">
         <div className="item-wrap ">
-          {/* <img src={projectImage} alt={projects.title} /> */}
           <ModalImage {...{imgSrc:projectImage}} />
-          {/* <ModalImage
-            small={projectImage}
-            large={projectImage}
-            alt="Hello World!"
-          /> */}
         </div>
       </div>
     );
@@ -32,7 +25,7 @@ function Portfolio(): JSX.Element {
 
             <div
               id="portfolio-wrapper"
-              className="bgrid-quarters s-bgrid-thirds cf"
+              className="bgrid-quarters s-bgrid-halves cf"
             >
               {projects}
             </div>
