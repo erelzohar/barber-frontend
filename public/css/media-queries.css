@@ -352,6 +352,9 @@
 
    /* header styles
    -------------------------------------------------------------------- */
+   #header-bg{
+      margin-top: 0 !important;
+   }
    header .banner { padding-top: 20px; }
    header .banner-text h1 {
       font: 40px/1.1em 'opensans-bold', sans-serif;      
@@ -365,6 +368,12 @@
    /* header social links */
    header .social { font-size: 20px;}
    header .social li { margin: 0 6px; }
+
+   /* ----------------- */
+
+   .ImageModal img{
+      height: 100%;
+   }
 
    /* footer
    ------------------------------------------------------------------------ */
