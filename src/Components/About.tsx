@@ -26,7 +26,7 @@ function About () {
                       </a>
                     </li>
                     <li key='whatsapp'>
-                      <a href='https://wa.me/972503713852'>
+                      <a href='https://wa.me/972537131173'>
                         <i className='fa fa-whatsapp'></i>
                       </a>
                     </li>

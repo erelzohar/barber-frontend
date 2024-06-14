@@ -45,7 +45,7 @@ function SpeedDialComponent() {
                   return window.open('tel:0503713852', '_self');
                 }
                 else if (action.name === "WhatsApp") {
-                  return window.open('https://wa.me/972503713852', 'blank');
+                  return window.open('https://wa.me/972537131173', 'blank');
                 }
                 else if (action.name === "Instagram") {
                   return window.open('https://www.instagram.com/ariel_edri.3/', 'blank');
