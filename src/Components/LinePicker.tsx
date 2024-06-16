@@ -23,7 +23,7 @@ function LinePicker() {
       .then(res => setLinesData(res));
   }, [])
 
-  const todayWorkingHours = adminData?.workingDays[new Date(date).getDay()].split("-");//10:00-18:00
+  const todayWorkingHours = adminData?.workingDays[new Date(date).getDay()]?.split("-");//10:00-18:00
 
   const linesMap = (workingHours: string[], epochDate: number, linesArr: LineModel[]): number[] => {
     if (!workingHours || workingHours[0] === '') return [];
