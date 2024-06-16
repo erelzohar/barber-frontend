@@ -50,7 +50,7 @@ class LinesService {
     }
     public async deleteLineAsync(_id: string): Promise<LineModel> {
         try {
-            const ok = window.confirm("למחוק את המוצר?");
+            const ok = window.confirm("לבטל את התור?");
             if (!ok) return;
             const response = await jwtAxios.delete(globals.linesUrl + "/" + _id);
             store.dispatch(deleteLine(_id));

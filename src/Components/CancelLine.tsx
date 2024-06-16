@@ -27,18 +27,7 @@ export default function CancelLine(): JSX.Element {
                 else navigate("/*")
             })
     }, [params])
-    // const { register, handleSubmit, formState: { errors } } = useForm();
-    // const submit: SubmitHandler = async data => {
-    //     try {
-    //         // const res = await usersService.login(data);
-    //         // if (!res) return notify.error("שם או סיסמא שגויים");
-    //         // navigate("/manage/settings");
 
-    //     }
-    //     catch (err: any) {
-    //         notify.error(err);
-    //     }
-    // }
     const style = {
         position: 'absolute',
         top: '50%',
@@ -68,7 +57,7 @@ export default function CancelLine(): JSX.Element {
                         <h3>יום {daysMap[date.getDay()]}</h3>
                         <h3>{`${date.getDate()}.${(+date.getMonth() + 1)} - ${date.toTimeString().substring(0, 5)}`}</h3>
                     </Typography>
-                    <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} variant="contained" color="error">ביטול התור</Button>
+                    <Button onClick={async()=>linesService.deleteLineAsync(lineId)} sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} variant="contained" color="error">ביטול התור</Button>
                 </>
                     : <>
                         <Typography id="modal-modal-title" variant="h6" component="h1" style={{ margin: "3px", direction: "rtl", textAlign: 'center' }}>
