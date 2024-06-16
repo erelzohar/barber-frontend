@@ -81,8 +81,7 @@ function LineCard(props: Props) {
             setOpen(false);
             notify.success("!התור נקבע בהצלחה");
             const sms = new SMSModel();
-            sms.message = "שלום " + newLine.name + `,  נקבע לך תור לאריאל אדרי עיצוב שיער לתאריך ${date.getDate()}/${(+date.getMonth() + 1)} בשעה ${date.toTimeString().substring(0, 5)} יום ${daysMap[date.getDay()]} .   לינק לביטול התור עד שעה לפני המועד שנקבע :
-            ${window.location.origin + "/cancel/" + res._id}`;
+            sms.message = "שלום " + newLine.name + `,  נקבע לך תור לאריאל אדרי לתאריך ${date.getDate()}/${(+date.getMonth() + 1)} בשעה ${date.toTimeString().substring(0, 5)} יום ${daysMap[date.getDay()]} . לינק לביטול התור עד שעה לפני המועד שנקבע :${window.location.origin + "/cancel/" + res._id}`;
             sms.phoneNumber = newLine.phone;
             const smsRes = await smsService.sendSMS(sms);
             if (smsRes !== 200) return notify.custom("אירעה שגיאה נסה שוב מאוחר יותר");

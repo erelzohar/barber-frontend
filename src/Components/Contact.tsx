@@ -108,8 +108,8 @@ function Contact() {
           </div>
         </Slide>
 
-        <Slide triggerOnce direction="right" duration={1000}>
-          <aside className="four columns footer-widgets">
+        {/* <Slide triggerOnce direction="right" duration={1000}> */}
+          {/* <aside className="four columns footer-widgets"> */}
             <div className="widget widget_contact">
               <h4>כתובת ומספר טלפון</h4>
               <p className="address">
@@ -122,8 +122,8 @@ function Contact() {
                 <span>053-713-1173</span>
               </p>
             </div>
-          </aside>
-        </Slide>
+          {/* </aside> */}
+        {/* </Slide> */}
       </div>
     </section>
   );

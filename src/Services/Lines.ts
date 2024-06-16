@@ -1,5 +1,5 @@
 import LineModel from "../Models/LineModel";
-import { addLine, setLines } from "../Redux/Reducers/lines.slice";
+import { addLine, deleteLine, setLines } from "../Redux/Reducers/lines.slice";
 import store from "../Redux/Store";
 import globals from "./Globals";
 import jwtAxios from "./JwtAxios";
@@ -40,6 +40,21 @@ class LinesService {
         try {
             const response = await jwtAxios.post<LineModel>(globals.linesUrl, LineModel.convertToFormData(newLine));
             store.dispatch(addLine(response.data));
+            return response.data;
+        }
+        catch (err) {
+            notify.error(err);
+            return null;
+        }
+
+    }
+    public async deleteLineAsync(_id: string): Promise<LineModel> {
+        try {
+            const ok = window.confirm("למחוק את המוצר?");
+            if (!ok) return;
+            const response = await jwtAxios.delete(globals.linesUrl + "/" + _id);
+            store.dispatch(deleteLine(_id));
+            notify.success("נמחק בהצלחה");
             return response.data;
         }
         catch (err) {

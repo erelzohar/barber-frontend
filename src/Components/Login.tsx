@@ -42,7 +42,7 @@ function Login(): JSX.Element {
         try {
             const res = await usersService.login(data);
             if (!res) return notify.error("שם או סיסמא שגויים");
-            navigate("/manage/settings");
+            navigate("/manage/lines");
 
         }
         catch (err: any) {

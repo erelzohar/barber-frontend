@@ -29,9 +29,14 @@ const linesReducer = createSlice({
             state.lines = action.payload;
 
         },
+        deleteLine: (state, action: PayloadAction<string>) => {
+            const index = state.lines.findIndex(line => line._id === action.payload);
+            if (index < 0) return;
+            state.lines.splice(index, 1);
+        }
     }
 });
 
-export const { setCurrentAdmin, setLines ,addLine} = linesReducer.actions;
+export const { setCurrentAdmin, setLines ,addLine,deleteLine} = linesReducer.actions;
 
 export default linesReducer.reducer;

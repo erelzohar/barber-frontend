@@ -25,10 +25,10 @@ class AdminModel {
     public static convertToFormData(admin: AdminModel): FormData {
         const formData = new FormData();
         if (admin._id) formData.append("_id", admin._id);
-        formData.append("username", admin.username);
+        if (admin.username) formData.append("username", admin.username);
         formData.append("name", admin.name);
         formData.append("phone", admin.phone);
-        formData.append("password", admin.password);
+        if (admin.password) formData.append("password", admin.password);
         formData.append("vacations",JSON.stringify(admin.vacations));
         formData.append("workingDays", JSON.stringify(admin.workingDays));
         formData.append("message", admin.message);

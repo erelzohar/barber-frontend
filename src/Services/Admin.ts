@@ -21,6 +21,18 @@ class AdminService {
         }
 
     }
+    public async updateCurrentAdminAsync(admin:AdminModel): Promise<AdminModel> {
+        try {
+            const response = await jwtAxios.post<AdminModel>(globals.adminUrl,AdminModel.convertToFormData(admin));
+            store.dispatch(setCurrentAdmin(response.data));            
+            return response.data;
+        }
+        catch (err) {
+            notify.error(err);
+            return null;
+        }
+
+    }
 
 
 }

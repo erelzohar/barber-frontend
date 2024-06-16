@@ -4,9 +4,10 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import store from '../Redux/Store';
+import adminService from '../Services/Admin';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -18,12 +19,18 @@ const Transition = React.forwardRef(function Transition(
 });
 export default function AlertMessage(): JSX.Element {
     const [open, setOpen] = React.useState(true);
+    const [admin, setAdmin] = React.useState(store.getState().linesState.currentAdmin);
+
+    React.useEffect(() => {
+        if (!admin) adminService.getCurrentAdminAsync()
+            .then(res => setAdmin(res));
+    }, [])
 
     const handleClose = () => {
         setOpen(false);
     };
     return <div className="AlertMessage">
-        <Dialog
+        {admin && <Dialog
             dir='rtl'
             open={open}
             TransitionComponent={Transition}
@@ -32,12 +39,12 @@ export default function AlertMessage(): JSX.Element {
             aria-describedby="alert-dialog-slide-description">
             <DialogContent>
                 <DialogContentText id="alert-dialog-slide-description">
-                    לקוחות יקרים בתאריכים 24.1 עד 27.1 אני בחופשה אוהב אותכם!
+                    {admin.message}
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>קיבלתי</Button>
             </DialogActions>
-        </Dialog>
+        </Dialog>}
     </div>
 }

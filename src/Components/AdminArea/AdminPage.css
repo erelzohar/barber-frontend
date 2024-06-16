@@ -13,7 +13,6 @@
 .AdminPage>* {
     margin: 1rem 1rem 3rem 1rem;
 }
-
 .vacation-line {
     display: flex;
     align-items: center;
@@ -24,9 +23,22 @@
 .LinesList {
     height: 100%;
     background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
 }
-
+.LinesList .list-container{
+    width: 100%;
+}
+.AdminPage .Mui-selected{
+    background-color: rgba(166, 167, 174, 0.192) !important;
+    font-size: large !important;
+    transition: ease-in-out 1s all;
+    border: 1px solid rgba(128, 128, 128, 0.429) !important;
+}
 .AdminLineCard {
+    /* color: 	#2f2fd4a8; */
     direction: rtl;
     margin: 1rem 5vw 1rem 5vw;
     padding: 1rem;
@@ -39,6 +51,7 @@
     text-align: center;
     transition: all 300ms;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    background-color: #bdbdbd6c;
 
 }
 .dayDiv{
