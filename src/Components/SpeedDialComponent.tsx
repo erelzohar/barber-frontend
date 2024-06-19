@@ -42,7 +42,7 @@ function SpeedDialComponent() {
               tooltipOpen
               onClick={() => {
                 if (action.name === "Call") {
-                  return window.open('tel:0503713852', '_self');
+                  return window.open('tel:0537131173', '_self');
                 }
                 else if (action.name === "WhatsApp") {
                   return window.open('https://wa.me/972537131173', 'blank');

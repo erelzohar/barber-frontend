@@ -8,9 +8,9 @@ import notify from "./Notify";
 class LinesService {
 
 
-    public async getAllLinesAsync(): Promise<LineModel[]> {
+    public async getAllLinesAsync(forceUpdate?:boolean): Promise<LineModel[]> {
         try {
-            if (store.getState().linesState.lines?.length > 0) return store.getState().linesState.lines;
+            if (!forceUpdate && store.getState().linesState.lines?.length > 0) return store.getState().linesState.lines;
             const response = await jwtAxios.get<LineModel[]>(globals.linesUrl);
             store.dispatch(setLines(response.data));
             return response.data;
@@ -54,7 +54,7 @@ class LinesService {
             if (!ok) return;
             const response = await jwtAxios.delete(globals.linesUrl + "/" + _id);
             store.dispatch(deleteLine(_id));
-            notify.success("נמחק בהצלחה");
+            notify.success("בוטל בהצלחה");
             return response.data;
         }
         catch (err) {

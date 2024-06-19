@@ -8,9 +8,13 @@ import { Link } from "react-router-dom";
 
 function LinesList(): JSX.Element {
     const linesData = useAppSelector(state => state.linesState.lines);
-    
+
     useEffect(() => {
-        if (linesData?.length === 0 || !linesData) linesService.getAllLinesAsync()
+        if (linesData?.length === 0 || !linesData) linesService.getAllLinesAsync();
+        const interval = setInterval(() => {
+            linesService.getAllLinesAsync(true);
+        }, 220000);
+        return () => { clearInterval(interval); }
     }, [])
 
     return <div className="LinesList">

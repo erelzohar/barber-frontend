@@ -21,9 +21,7 @@ const linesReducer = createSlice({
             state.currentAdmin = action.payload;
         },
         addLine: (state, action: PayloadAction<LineModel>) => {
-            state.lines.push(action.payload);
-            console.log(state);
-            
+            state.lines.push(action.payload);            
         },
         setLines: (state, action: PayloadAction<LineModel[]>) => {
             state.lines = action.payload;

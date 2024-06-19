@@ -62,8 +62,10 @@ function LineCard(props: Props) {
             const sms = new SMSModel();
             sms.message = "הקוד שלך לקביעת התור הוא : " + randomNum;
             sms.phoneNumber = newLine.phone;
-            const res = await smsService.sendSMS(sms);
-            if (res !== 200) return notify.custom("אירעה שגיאה נסה שוב מאוחר יותר");
+            console.log(randomNum);
+
+            // const res = await smsService.sendSMS(sms);
+            // if (res !== 200) return notify.custom("אירעה שגיאה נסה שוב מאוחר יותר");
             setFormSteps(1);
 
         }
@@ -177,6 +179,7 @@ function LineCard(props: Props) {
                                 שלחנו לך קוד ב sms לצורך אימות:
                             </Typography>
                             <TextField
+                                autoFocus
                                 focused
                                 fullWidth
                                 margin="normal"

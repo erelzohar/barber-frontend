@@ -13,6 +13,7 @@
 .AdminPage>* {
     margin: 1rem 1rem 3rem 1rem;
 }
+
 .vacation-line {
     display: flex;
     align-items: center;
@@ -22,21 +23,18 @@
 
 .LinesList {
     height: 100%;
+    min-height: 100vh;
     background: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem 0;
 }
-.LinesList .list-container{
+
+.LinesList .list-container {
     width: 100%;
 }
-.AdminPage .Mui-selected{
-    background-color: rgba(166, 167, 174, 0.192) !important;
-    font-size: large !important;
-    transition: ease-in-out 1s all;
-    border: 1px solid rgba(128, 128, 128, 0.429) !important;
-}
+
 .AdminLineCard {
     /* color: 	#2f2fd4a8; */
     direction: rtl;
@@ -50,10 +48,20 @@
     font-size: large;
     text-align: center;
     transition: all 300ms;
-    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
-    background-color: #bdbdbd6c;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;    background-color: #f3f3f3;
+    background-image: linear-gradient(to right, #f3f3f3, rgb(218, 224, 255) 70%, #f3f3f3);
+    transition: background-position 1s ease;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+
+.AdminLineCard:hover {
+    background-position: right;
+}
+.AdminLineCard *{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
-.dayDiv{
+.dayDiv {
     margin-bottom: 1rem;
 }
