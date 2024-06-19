@@ -27,13 +27,13 @@ class UsersService {
                 user = null;
             }
         }
-        if (!user?.token) return null;
-        const decodedToken: JwtPayload = jwtDecode(user.token);
-        if (decodedToken.exp < Date.now() / 1000) {
-            localStorage.removeItem('barbershopuser');
-            notify.custom("אנא התחבר מחדש");
-            return null;
-        }
+        // if (!user?.token) return null;
+        // const decodedToken: JwtPayload = jwtDecode(user.token);
+        // if (decodedToken.exp < Date.now() / 1000) {
+        //     localStorage.removeItem('barbershopuser');
+        //     notify.custom("אנא התחבר מחדש");
+        //     return null;
+        // }
         return user;
     }
 
@@ -45,7 +45,7 @@ class UsersService {
         const res = await jwtAxios.post<AdminModel>(globals.loginUrl, formData);
         if (!res) return null;
         store.dispatch(adminLoggedIn(res.data));
-        usersService.SaveUserLocal(res.data);
+        this.SaveUserLocal(res.data);
         notify.success('!התחברת בהצלחה');
         return res.data;
     }

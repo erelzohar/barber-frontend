@@ -8,7 +8,7 @@ interface protectedRouteProps{
 
 
 export default function ProtectedRoute(props:protectedRouteProps){
-    const isAuthenticated = store.getState().authState.admin;    
+    const isAuthenticated = store.getState().authState.admin;  
     if (!isAuthenticated) return <Navigate to={props.redirectPath} replace/>
     return props.protectedComponent;
 }
