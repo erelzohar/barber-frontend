@@ -98,7 +98,7 @@ function LineCard(props: Props) {
         maxWidth: '600px',
         bgcolor: '#fff',
         boxShadow: 24,
-        p: 2,
+        p: 3,
         paddingBottom: 0,
         paddingTop: 1,
         borderRadius: '7px',
@@ -117,7 +117,10 @@ function LineCard(props: Props) {
                 <Box sx={style}>
                     <div style={{ display: formSteps === 1 ? "none" : "" }}>
                         <Typography id="modal-modal-title" variant="h6" component="h2" style={{ margin: "3px", direction: "rtl" }}>
-                            אנא מלא את פרטי התור:
+                            <div className="lineDetails">
+                                <h3>יום {daysMap[date.getDay()]}</h3>
+                                <h3>{`${date.getDate()}.${(+date.getMonth() + 1)} - ${date.toTimeString().substring(0, 5)}`}</h3>
+                            </div>
                         </Typography>
                         <form className="modalForm" id="line-form" noValidate onSubmit={handleSubmit(submit)}>
 
@@ -157,11 +160,8 @@ function LineCard(props: Props) {
                                 label="טלפון"
                                 variant="standard"
                             />
-                            <div className="lineDetails">
-                                <h3>יום {daysMap[date.getDay()]}</h3>
-                                <h3>{`${date.getDate()}.${(+date.getMonth() + 1)} - ${date.toTimeString().substring(0, 5)}`}</h3>
-                            </div>
-                            <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success">שליחה </Button>
+
+                            <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success"><i className="fa fa-paper-plane" aria-hidden="true"></i> </Button>
                         </form>
                     </div>
                     <div style={{ display: formSteps === 0 ? "none" : "" }}>
