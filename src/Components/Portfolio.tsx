@@ -22,11 +22,14 @@ function Portfolio(): JSX.Element {
               id="portfolio-wrapper"
               className="bgrid-quarters s-bgrid-halves cf"
             >
-              {admin && admin.imagesNames.map((imgName, index) => {                
+              {admin && admin.imagesNames.map((imgName, index) => {     
+                const src = globals.imagesUrl + "/" + imgName;     
+                console.log(src);
+                    
                 return (
                   <div key={index} className="columns portfolio-item">
                     <div className="item-wrap ">
-                      <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName }} />
+                      <ModalImage {...{ imgSrc: src }} />
                     </div>
                   </div>
                 );
