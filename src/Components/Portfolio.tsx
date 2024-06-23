@@ -9,8 +9,8 @@ function Portfolio(): JSX.Element {
   const admin = useAppSelector(state => state.linesState.currentAdmin);
 
   useEffect(() => {
-    if (!admin) adminService.getCurrentAdminAsync();    
-  }, [])
+    if (!admin) adminService.getCurrentAdminAsync();
+  }, [admin])
 
   return (
     <section id="portfolio">
@@ -22,18 +22,12 @@ function Portfolio(): JSX.Element {
               id="portfolio-wrapper"
               className="bgrid-quarters s-bgrid-halves cf"
             >
-              {admin && admin.imagesNames.map((imgName, index) => {     
-                const src = globals.imagesUrl + "/" + imgName;     
-                console.log(src);
-                    
-                return (
-                  <div key={index} className="columns portfolio-item">
-                    <div className="item-wrap ">
-                      <ModalImage {...{ imgSrc: src }} />
-                    </div>
-                  </div>
-                );
-              })}
+              {admin && admin.imagesNames.map((imgName, index) => <div key={index} className="columns portfolio-item">
+                <div className="item-wrap ">
+                  <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName }} />
+                </div>
+              </div>
+            )}
             </div>
           </div>
         </div>
