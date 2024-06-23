@@ -10,7 +10,7 @@ function Header() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex(prev => prev === 2 ? 0 : prev + 1)
-    }, 4000);
+    }, 5000);
     return () => clearInterval((interval));
   }, [])
   
@@ -60,7 +60,7 @@ function Header() {
       </nav>
 
       <div className="row banner">
-        <div id="header-bg" style={{backgroundImage:`url(${logo})`}}></div>
+        <div id="header-bg" style={{backgroundImage:`url("${logo}")`}}></div>
         <div className="banner-text" >
           <br />
           <Fade triggerOnce direction="down" duration={1500} key={index}>
