@@ -2,6 +2,7 @@ import ParticlesBg from "particles-bg";
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
+import logo from "../Assets/images/ariel-logo.webp";
 
 function Header() {
   const [index, setIndex] = useState(0);
@@ -59,7 +60,7 @@ function Header() {
       </nav>
 
       <div className="row banner">
-        <div id="header-bg"></div>
+        <div id="header-bg" style={{backgroundImage:`url(${logo})`}}></div>
         <div className="banner-text" >
           <br />
           <Fade triggerOnce direction="down" duration={1500} key={index}>

@@ -1,5 +1,5 @@
 import {Fade} from "react-awesome-reveal";
-//import logo from "../images/ariel-logo.webp";
+import logo from "../Assets/images/ariel-logo.webp";
 
 function About () {
     return (
@@ -9,7 +9,7 @@ function About () {
             <div className="three columns">
               <img
                 className="profile-pic"
-                src="/images/ariel-logo.webp"
+                src={logo}
                 alt="Profile Pic"
               />
             </div>
