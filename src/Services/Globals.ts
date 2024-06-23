@@ -12,6 +12,7 @@ class DevelopmentGlobals extends Globals {
     public smsUrl = "http://localhost:3001/api/sms";
     public ordersUrl = "http://localhost:3001/api/orders";
     public messagesUrl = "http://localhost:3001/api/message";
+    public imagesUrl = "http://localhost:3001/api/admin/img";
 }
 
 class ProductionGlobals extends Globals {
@@ -21,6 +22,8 @@ class ProductionGlobals extends Globals {
     public smsUrl = "https://barber-backend-app-308bdd2961da.herokuapp.com/api/sms";
     public ordersUrl = "https://barber-backend-app-308bdd2961da.herokuapp.com/api/orders";
     public messagesUrl = "https://barber-backend-app-308bdd2961da.herokuapp.com/api/message";
+    public imagesUrl = "https://barber-backend-app-308bdd2961da.herokuapp.com/api/admin/img";
+
 }
 
 const globals = process.env.NODE_ENV === "production" ? new ProductionGlobals() : new DevelopmentGlobals();

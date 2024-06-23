@@ -29,7 +29,7 @@
 #header-bg {
     height: 40vh !important;
     margin-top: 5vh ;
-    background-image: url('./images/ariel-logo.png');
+    background-image: url('./images/ariel-logo.webp');
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -78,9 +78,8 @@
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
-#line-form input {
-    height: 2.5rem !important;
+.MuiInputBase-input {
+    height: 2rem !important;
 }
 
 .NotFoundPage {

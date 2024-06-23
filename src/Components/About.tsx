@@ -1,8 +1,7 @@
 import {Fade} from "react-awesome-reveal";
+import logo from "../images/ariel-logo.webp";
 
 function About () {
-    const profilepic = "images/ariel-logo.png";
-
     return (
       <section id="about">
         <Fade triggerOnce duration={1000}>
@@ -10,7 +9,7 @@ function About () {
             <div className="three columns">
               <img
                 className="profile-pic"
-                src={profilepic}
+                src={logo}
                 alt="Profile Pic"
               />
             </div>

@@ -24,7 +24,6 @@ function Home() {
         <div className="Home">
             {alert && <AlertMessage />}
             <Header />
-            <Login />
             <About />
             <Portfolio />
             <LinePicker />

@@ -10,7 +10,6 @@ import { Fade } from "react-awesome-reveal";
 
 interface Props {
     epochDate: number;
-    setLines: React.Dispatch<React.SetStateAction<LineModel[]>>;
 }
 interface LineCredentials {
     phoneNumber: string;
@@ -85,12 +84,6 @@ function LineCard(props: Props) {
             sms.phoneNumber = newLine.phone;
             const smsRes = await smsService.sendSMS(sms);
             if (smsRes !== 200) return notify.custom("אירעה שגיאה נסה שוב מאוחר יותר");
-
-            props.setLines((prev) => {
-                const newState = [...prev];
-                newState.push(newLine);
-                return newState
-            })
         }
         catch (err: any) {
             notify.error(err);
@@ -105,7 +98,7 @@ function LineCard(props: Props) {
         maxWidth: '600px',
         bgcolor: '#fff',
         boxShadow: 24,
-        p: 4,
+        p: 2,
         paddingBottom: 0,
         paddingTop: 1,
         borderRadius: '7px',
@@ -142,7 +135,7 @@ function LineCard(props: Props) {
                                 error={errors.name ? true : false}
                                 helperText={errors.name?.message}
                                 label="שם"
-                                variant="filled"
+                                variant="standard"
                             />
                             <TextField
                                 id="phoneNumber-input"
@@ -162,7 +155,7 @@ function LineCard(props: Props) {
                                 error={errors.phoneNumber ? true : false}
                                 helperText={errors.phoneNumber?.message}
                                 label="טלפון"
-                                variant="filled"
+                                variant="standard"
                             />
                             <div className="lineDetails">
                                 <h3>יום {daysMap[date.getDay()]}</h3>

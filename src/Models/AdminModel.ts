@@ -14,6 +14,7 @@ class AdminModel {
     public username: string;
     public vacations: string[];
     public workingDays: string[];
+    public imagesNames: string[];
     public name: string;
     public message: string;
     public minutesPerLine: number;
@@ -31,6 +32,7 @@ class AdminModel {
         if (admin.password) formData.append("password", admin.password);
         formData.append("vacations",JSON.stringify(admin.vacations));
         formData.append("workingDays", JSON.stringify(admin.workingDays));
+        formData.append("imagesNames", JSON.stringify(admin.imagesNames));
         formData.append("message", admin.message);
         formData.append("minutesPerLine", admin.minutesPerLine.toString());
         return formData

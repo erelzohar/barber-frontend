@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import store from '../Redux/Store';
+import store, { useAppSelector } from '../Redux/Store';
 import adminService from '../Services/Admin';
 
 const Transition = React.forwardRef(function Transition(
@@ -19,11 +19,10 @@ const Transition = React.forwardRef(function Transition(
 });
 export default function AlertMessage(): JSX.Element {
     const [open, setOpen] = React.useState(true);
-    const [admin, setAdmin] = React.useState(store.getState().linesState.currentAdmin);
+    const admin = useAppSelector(state=>state.linesState.currentAdmin);
 
     React.useEffect(() => {
-        if (!admin) adminService.getCurrentAdminAsync()
-            .then(res => setAdmin(res));
+        if (!admin) adminService.getCurrentAdminAsync();
     }, [])
 
     const handleClose = () => {

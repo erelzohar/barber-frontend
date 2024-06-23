@@ -1,20 +1,16 @@
 import { Fade } from "react-awesome-reveal";
 import ModalImage from "./ModalImage";
+import globals from "../Services/Globals";
+import { useAppSelector } from "../Redux/Store";
+import { useEffect } from "react";
+import adminService from "../Services/Admin";
 
 function Portfolio(): JSX.Element {
-  const data = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg","09.jpg","10.jpg","11.jpg","12.jpg"  ]
+  const admin = useAppSelector(state => state.linesState.currentAdmin);
 
-  const projects = data.map(function (imgName,index) {
-    let projectImage = "images/portfolio/" + imgName;
-
-    return (
-      <div key={index} className="columns portfolio-item">
-        <div className="item-wrap ">
-          <ModalImage {...{imgSrc:projectImage}} />
-        </div>
-      </div>
-    );
-  });
+  useEffect(() => {
+    if (!admin) adminService.getCurrentAdminAsync();    
+  }, [])
 
   return (
     <section id="portfolio">
@@ -22,12 +18,19 @@ function Portfolio(): JSX.Element {
         <div className="row">
           <div className="twelve collapsed">
             <h1>העבודות שלי</h1>
-
             <div
               id="portfolio-wrapper"
               className="bgrid-quarters s-bgrid-halves cf"
             >
-              {projects}
+              {admin && admin.imagesNames.map((imgName, index) => {                
+                return (
+                  <div key={index} className="columns portfolio-item">
+                    <div className="item-wrap ">
+                      <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName }} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

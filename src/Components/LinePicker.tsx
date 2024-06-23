@@ -4,23 +4,20 @@ import LineCard from "./LineCard";
 import { useState } from "react";
 import { useEffect } from "react"
 import adminService from "../Services/Admin";
-import AdminModel from "../Models/AdminModel";
 import LineModel from "../Models/LineModel";
 import linesService from "../Services/Lines";
-import store from "../Redux/Store";
+import { useAppSelector } from "../Redux/Store";
 
 function LinePicker() {
-  const [adminData, setAdminData] = useState<AdminModel>(store.getState().linesState.currentAdmin);
-  const [linesData, setLinesData] = useState<LineModel[]>(store.getState().linesState.lines);
+  const adminData = useAppSelector(state=>state.linesState.currentAdmin);
+  const linesData = useAppSelector(state=>state.linesState.lines);
   const [date, setDate] = useState<number>(new Date().getTime());
   const daysMap = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"];
   const fixedDate = new Date(date);
 
   useEffect(() => {
-    if (!adminData) adminService.getCurrentAdminAsync()
-      .then(res => setAdminData(res));
-    if (linesData.length === 0) linesService.getAllLinesAsync()
-      .then(res => setLinesData(res));
+    if (!adminData) adminService.getCurrentAdminAsync();
+    if (linesData.length === 0) linesService.getAllLinesAsync();
   }, [])
 
   const todayWorkingHours = adminData?.workingDays[new Date(date).getDay()]?.split("-");//10:00-18:00
@@ -49,7 +46,7 @@ function LinePicker() {
         </div>
         <h1>תורים פנויים ליום  {daysMap[fixedDate.getDay()] + ` ${fixedDate.getDate()}/${(+fixedDate.getMonth() + 1)}`}:</h1>
         <div className="linesList">
-          {adminData && linesMap(todayWorkingHours, date, linesData).length === 0 ? <h3 style={{ textAlign: "center" }}> אין תורים פנויים נסה תאריך אחר</h3> : adminData && linesMap(todayWorkingHours, date, linesData).map(l => <LineCard key={l} epochDate={l} setLines={setLinesData} />)}
+          {adminData && linesMap(todayWorkingHours, date, linesData).length === 0 ? <h3 style={{ textAlign: "center" }}> אין תורים פנויים נסה תאריך אחר</h3> : adminData && linesMap(todayWorkingHours, date, linesData).map(l => <LineCard key={l} epochDate={l} />)}
         </div>
       </Slide>
     </section>

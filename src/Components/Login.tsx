@@ -1,10 +1,10 @@
 import { Resolver, SubmitHandler, useForm } from "react-hook-form";
 import Credentials from "../Models/Credentials";
 import { Box, Button, Modal, TextField, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import usersService from "../Services/Users";
 import notify from "../Services/Notify";
-import { useState } from "react";
+import ParticlesBg from "particles-bg";
 
 
 const resolver: Resolver<Credentials> = async (values) => {
@@ -36,7 +36,6 @@ const resolver: Resolver<Credentials> = async (values) => {
 }
 function Login(): JSX.Element {
     const navigate = useNavigate();
-    const [open,setOpen]= useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<Credentials>({ resolver, mode: 'onBlur' });
     const submit: SubmitHandler<Credentials> = async data => {
         try {
@@ -63,21 +62,25 @@ function Login(): JSX.Element {
     }
     return (
         <div className="Login">
-            <i className="fa fa-sign-in" title="התחברות" id="login-btn" aria-hidden="true" onClick={()=>setOpen(true)}></i>
+            <ParticlesBg type="circle" color="#FFD700" bg={true} />
             <Modal
-                open={open}
-                onClose={() => { setOpen(false) }}
+                open
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{ margin: "3px", direction: "rtl" }}>
-                        התחברות
-                    </Typography>
+
+                    <span style={{display:"flex",justifyContent:"space-between"}}>
+                        <Link to="/" style={{color:'red'}}>X</Link>
+                        <Typography id="modal-modal-title" variant="h6" component="span" style={{ margin: "3px", direction: "rtl" }}>
+                            התחברות
+                        </Typography>
+                    </span>
+
 
                     <form className="modalForm" id="login-form" noValidate onSubmit={handleSubmit(submit)}>
-                        <TextField dir="ltr" fullWidth margin="normal" required type="text" {...register("username")} id="username-input" error={errors.username ? true : false} helperText={errors.username?.message} label="שם משתמש" variant="outlined" />
-                        <TextField dir="ltr" fullWidth margin="normal" required type="password" {...register("password")} id="password-input" error={errors.password ? true : false} helperText={errors.password?.message} label="סיסמא" variant="outlined" />
+                        <TextField dir="ltr" fullWidth margin="normal" required type="text" {...register("username")} id="username-input" error={errors.username ? true : false} helperText={errors.username?.message} label="שם משתמש" variant="standard" />
+                        <TextField dir="ltr" fullWidth margin="normal" required type="password" {...register("password")} id="password-input" error={errors.password ? true : false} helperText={errors.password?.message} label="סיסמא" variant="standard" />
                         <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success">התחבר</Button>
                     </form>
                 </Box>

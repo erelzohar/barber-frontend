@@ -1,7 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import notify from "../Services/Notify";
-import { Resolver, SubmitHandler, useForm } from "react-hook-form";
-import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import LineModel from "../Models/LineModel";
 import linesService from "../Services/Lines";
