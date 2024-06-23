@@ -9,7 +9,7 @@ function About () {
             <div className="three columns">
               <img
                 className="profile-pic"
-                src="https://barber-backend-app-308bdd2961da.herokuapp.com/api/admin/img"
+                src="/images/ariel-logo.webp"
                 alt="Profile Pic"
               />
             </div>
