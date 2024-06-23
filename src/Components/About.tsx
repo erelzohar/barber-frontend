@@ -1,5 +1,5 @@
 import {Fade} from "react-awesome-reveal";
-import logo from "../Assets/images/ariel-logo.webp";
+import logo from "../Assets/images/ariel-logo.png";
 
 function About () {
     return (
