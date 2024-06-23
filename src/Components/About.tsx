@@ -1,5 +1,5 @@
 import {Fade} from "react-awesome-reveal";
-import logo from "../images/ariel-logo.webp";
+//import logo from "../images/ariel-logo.webp";
 
 function About () {
     return (
@@ -9,7 +9,7 @@ function About () {
             <div className="three columns">
               <img
                 className="profile-pic"
-                src={logo}
+                src="https://barber-backend-app-308bdd2961da.herokuapp.com/api/admin/img"
                 alt="Profile Pic"
               />
             </div>
