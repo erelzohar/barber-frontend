@@ -77,9 +77,9 @@
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.MuiInputBase-input {
+/* .MuiInputBase-input {
     height: 2rem !important;
-}
+} */
 
 .NotFoundPage {
     height: 100vh;

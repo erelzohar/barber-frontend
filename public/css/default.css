@@ -36,26 +36,7 @@ e. Others
       HTML5 Doctor Reset - html5doctor.com/html-5-reset-stylesheet/
 /* ------------------------------------------------------------------ */
 
-html, body, div, span, object, iframe,
-h1, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-   margin: 0;
-   padding: 0;
-   border: 0;
-   outline: 0;
-   font-size: 100%;
-   vertical-align: baseline;
-   background: transparent;
-}
+
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
@@ -135,22 +116,7 @@ table {
    box-sizing: border-box;
 }
 
-html {
-   /* font-size: 62.5%; */
-   -webkit-font-smoothing: antialiased;
-}
 
-body {
-   background: #fff;
-   font-family: 'opensans-regular', sans-serif;
-   font-weight: normal;
-   font-size: 15px;
-   line-height: 30px;
-	color: #838C95;
-
-   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
-	-webkit-text-size-adjust: 100%;
-}
 
 /*  2. Typography
        Vertical rhythm with leading derived from 6
@@ -452,67 +418,6 @@ img {
 img.pull-right { margin: 12px 0px 0px 18px; }
 img.pull-left { margin: 12px 18px 0px 0px; }
 
-/*  6. Buttons  --------------------------------------------------------- */
-
-.button,
-.button:visited,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-   font: 16px/30px 'opensans-bold', sans-serif;
-   background: #11ABB0;
-   display: inline-block;
-	text-decoration: none;
-   letter-spacing: 0;
-   color: #fff;
-	padding: 12px 20px;
-	margin-bottom: 18px;
-   border: none;
-   cursor: pointer;
-   height: auto;
-
-   -webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-
-   -moz-border-radius: 0px;
-   -webkit-border-radius: 0px;
-   -khtml-border-radius: 0px;
-   border-radius: 0px;
-}
-
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover {
-   background: #3d4145;
-   color: #fff;
-}
-
-.button:active,
-button:active,
-input[type="submit"]:active,
-input[type="reset"]:active,
-input[type="button"]:active {
-   background: #3d4145;
-   color: #fff;
-}
-
-.button.full-width,
-button.full-width,
-input[type="submit"].full-width,
-input[type="reset"].full-width,
-input[type="button"].full-width {
-	width: 100%;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	text-align: center;
-}
-
 /* Fix for odd Mozilla border & padding issues */
 #contact button::-moz-focus-inner,
 #contact input::-moz-focus-inner {
@@ -525,7 +430,7 @@ input[type="button"].full-width {
 /*  7. Forms  --------------------------------------------------------- */
 
 #contact form { margin-bottom: 24px; }
-fieldset { margin-bottom: 24px; }
+fieldset { margin-bottom: 24px;border: none; }
 
 #contact input[type="text"] ,
 #contact input[type="password"] ,
@@ -559,18 +464,6 @@ fieldset { margin-bottom: 24px; }
 
 textarea { min-height: 220px; }
 
-label,
-legend {
-   font: 16px/24px 'opensans-bold', sans-serif;
-	margin: 12px 0;
-   color: #3d4145;
-   display: block;
-}
-label span,
-legend span {
-	color: #8B9798;
-   font: 14px/24px 'opensans-regular', sans-serif;
-}
 
 input[type="checkbox"],
 input[type="radio"] {

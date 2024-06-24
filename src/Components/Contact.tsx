@@ -3,6 +3,7 @@ import { Fade, Slide } from "react-awesome-reveal";
 import notify from "../Services/Notify";
 import SMSModel from "../Models/SMSModel";
 import smsService from "../Services/SMS";
+import { Button } from "@mui/material";
 
 function Contact() {
   const [name, setName] = useState<string>("");
@@ -95,21 +96,13 @@ function Contact() {
                 </div>
 
                 <div>
-                  <button className="submit">שליחה</button>
+                  <Button className="submit" type="submit">שליחה</Button>
                 </div>
               </fieldset>
             </form>
-
-            <div id="message-warning"> Error boy</div>
-            <div id="message-success">
-              <i className="fa fa-check"></i>Your message was sent, thank you!
-              <br />
-            </div>
           </div>
         </Slide>
 
-        {/* <Slide triggerOnce direction="right" duration={1000}> */}
-          {/* <aside className="four columns footer-widgets"> */}
             <div className="widget widget_contact">
               <h4>כתובת ומספר טלפון</h4>
               <p className="address">
@@ -122,8 +115,6 @@ function Contact() {
                 <span>053-713-1173</span>
               </p>
             </div>
-          {/* </aside> */}
-        {/* </Slide> */}
       </div>
     </section>
   );
