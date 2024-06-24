@@ -25,7 +25,7 @@ export default function AdminLineCard(props: AdminLineProps) {
                         <ButtonGroup orientation='vertical' variant="text" aria-label="Basic button group">
                             <IconButton onClick={async () => { await linesService.deleteLineAsync(props.line._id) }} title='ביטול' color='warning'><Cancel /></IconButton>
                             <a href={"tel:" + props.line.phone}><IconButton title='שיחה' color='primary'><Call /></IconButton></a>
-                            <a href={"https://wa.me/" + props.line.phone}><IconButton title='WhatsApp' color='success'><WhatsApp /></IconButton></a>
+                            <a href={"https://wa.me/+972" + props.line.phone.substring(1)}><IconButton title='WhatsApp' color='success'><WhatsApp /></IconButton></a>
                         </ButtonGroup>
                         {/* <a href={"tel:" + props.line.phone}><Button sx={{ margin: "0.5rem", padding: '1rem 0', borderRadius: '50%' }} type="submit" variant="contained" color="success"><Call fontSize='small'/></Button></a>
                         <Button sx={{ margin: "0.5rem", borderRadius: '40px' }} type="submit" variant="contained" color="warning" onClick={async () => await linesService.deleteLineAsync(props.line._id)}><Cancel/></Button> */}

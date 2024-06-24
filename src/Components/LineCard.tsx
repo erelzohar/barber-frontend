@@ -55,7 +55,7 @@ function LineCard(props: Props) {
     const submit: SubmitHandler<LineCredentials> = async data => {
         try {
             newLine.name = data.name;
-            newLine.phone = "+972" + data.phoneNumber.substring(1);
+            newLine.phone = data.phoneNumber;
             newLine.timestamp = props.epochDate.toString();
 
             const sms = new SMSModel();

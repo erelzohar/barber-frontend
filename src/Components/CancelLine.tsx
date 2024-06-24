@@ -3,6 +3,7 @@ import { Box, Button, Modal, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import LineModel from "../Models/LineModel";
 import linesService from "../Services/Lines";
+import ParticlesBg from "particles-bg";
 
 
 
@@ -39,10 +40,9 @@ export default function CancelLine(): JSX.Element {
         borderRadius: '7px',
     }
     return <div className="CancelLine">
+        <ParticlesBg type="circle" color="#FFD700" bg={true} />
         <Modal
-            sx={{ backgroundColor: '#cecece' }}
             open={true}
-            // onClose={() => { setOpen(false) }}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
@@ -55,20 +55,21 @@ export default function CancelLine(): JSX.Element {
                         <h3>יום {daysMap[date.getDay()]}</h3>
                         <h3>{`${date.getDate()}.${(+date.getMonth() + 1)} - ${date.toTimeString().substring(0, 5)}`}</h3>
                     </Typography>
-                    <Button onClick={async()=>linesService.deleteLineAsync(lineId)} sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} variant="contained" color="error">ביטול התור</Button>
+                    <Button onClick={async () => {
+                        await linesService.deleteLineAsync(lineId);
+                        navigate("/");
+                    }} sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} variant="contained" color="error">ביטול התור</Button>
                 </>
                     : <>
                         <Typography id="modal-modal-title" variant="h6" component="h1" style={{ margin: "3px", direction: "rtl", textAlign: 'center' }}>
                             לא ניתן לבטל את התור צור קשר עם בית העסק
                         </Typography>
                         <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} variant="contained" >
-                            <Link style={{color:'#fff'}} to="/" >חזרה לדף הבית </Link>
+                            <Link style={{ color: '#fff' }} to="/" >חזרה לדף הבית </Link>
                         </Button>
                     </>
                 }
-
             </Box>
-
         </Modal>
     </div>
 }

@@ -10,8 +10,7 @@ function Portfolio(): JSX.Element {
 
   useEffect(() => {
     if (!admin) adminService.getCurrentAdminAsync();
-  }, [admin])
-  console.log(admin?.imagesNames[2]);
+  }, [])
   
   return (
     <section id="portfolio">
@@ -25,7 +24,7 @@ function Portfolio(): JSX.Element {
             >
               {admin && admin.imagesNames.map((imgName, index) => <div key={index} className="columns portfolio-item">
                 <div className="item-wrap ">
-                  <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + admin.imagesNames[index] }} />
+                  <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName}} />
                 </div>
               </div>
             )}
