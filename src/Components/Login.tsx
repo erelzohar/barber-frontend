@@ -53,16 +53,17 @@ function Login(): JSX.Element {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '80%',
-        maxWidth: '600px',
-        bgcolor: '#fff',
+        width: '90%',
+        maxWidth: '400px',
+        bgcolor: '#ffffffa8',
         boxShadow: 24,
         p: 4,
         borderRadius: '7px',
     }
+
     return (
         <div className="Login">
-            <ParticlesBg type="circle" color="#FFD700" bg={true} />
+            <ParticlesBg type="circle" bg={true} color="random" />
             <Modal
                 open
                 aria-labelledby="modal-modal-title"
@@ -70,8 +71,8 @@ function Login(): JSX.Element {
             >
                 <Box sx={style}>
 
-                    <span style={{display:"flex",justifyContent:"space-between"}}>
-                        <Link to="/" style={{color:'red'}}>X</Link>
+                    <span style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                        <Link title="דף הבית" to="/"><i style={{color:"#1976d2"}} className="fa fa-home" aria-hidden="true"></i></Link>
                         <Typography id="modal-modal-title" variant="h6" component="span" style={{ margin: "3px", direction: "rtl" }}>
                             התחברות
                         </Typography>
@@ -79,9 +80,9 @@ function Login(): JSX.Element {
 
 
                     <form className="modalForm" id="login-form" noValidate onSubmit={handleSubmit(submit)}>
-                        <TextField dir="ltr" fullWidth margin="normal" required type="text" {...register("username")} id="username-input" error={errors.username ? true : false} helperText={errors.username?.message} label="שם משתמש" variant="standard" />
-                        <TextField dir="ltr" fullWidth margin="normal" required type="password" {...register("password")} id="password-input" error={errors.password ? true : false} helperText={errors.password?.message} label="סיסמא" variant="standard" />
-                        <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success">התחבר</Button>
+                        <TextField autoFocus dir="ltr" size="small" fullWidth margin="normal" required type="text" {...register("username")} id="username-input" error={errors.username ? true : false} helperText={errors.username?.message} label="שם משתמש"  />
+                        <TextField dir="ltr" size="small" fullWidth margin="normal" required type="password" {...register("password")} id="password-input" error={errors.password ? true : false} helperText={errors.password?.message} label="סיסמא" />
+                        <Button fullWidth sx={{ margin: "1rem auto", borderRadius: '20px' }} type="submit" variant="contained" >התחבר</Button>
                     </form>
                 </Box>
             </Modal>
