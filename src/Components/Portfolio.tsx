@@ -4,6 +4,7 @@ import globals from "../Services/Globals";
 import { useAppSelector } from "../Redux/Store";
 import { useEffect } from "react";
 import adminService from "../Services/Admin";
+import Loader from "./Loader";
 
 function Portfolio(): JSX.Element {
   const admin = useAppSelector(state => state.linesState.currentAdmin);
@@ -11,7 +12,7 @@ function Portfolio(): JSX.Element {
   useEffect(() => {
     if (!admin) adminService.getCurrentAdminAsync();
   }, [])
-  
+
   return (
     <section id="portfolio">
       <Fade triggerOnce duration={1000} >
@@ -22,12 +23,13 @@ function Portfolio(): JSX.Element {
               id="portfolio-wrapper"
               className="bgrid-quarters s-bgrid-halves cf"
             >
+              {!admin && <Loader />}
               {admin && admin.imagesNames.map((imgName, index) => <div key={index} className="columns portfolio-item">
                 <div className="item-wrap ">
-                  <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName}} />
+                  <ModalImage {...{ imgSrc: globals.imagesUrl + "/" + imgName }} />
                 </div>
               </div>
-            )}
+              )}
             </div>
           </div>
         </div>

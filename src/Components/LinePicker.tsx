@@ -7,10 +7,11 @@ import adminService from "../Services/Admin";
 import LineModel from "../Models/LineModel";
 import linesService from "../Services/Lines";
 import { useAppSelector } from "../Redux/Store";
+import Loader from "./Loader";
 
 function LinePicker() {
-  const adminData = useAppSelector(state=>state.linesState.currentAdmin);
-  const linesData = useAppSelector(state=>state.linesState.lines);
+  const adminData = useAppSelector(state => state.linesState.currentAdmin);
+  const linesData = useAppSelector(state => state.linesState.lines);
   const [date, setDate] = useState<number>(new Date().getTime());
   const daysMap = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"];
   const fixedDate = new Date(date);
@@ -46,6 +47,7 @@ function LinePicker() {
         </div>
         <h1>תורים פנויים ליום  {daysMap[fixedDate.getDay()] + ` ${fixedDate.getDate()}/${(+fixedDate.getMonth() + 1)}`}:</h1>
         <div className="linesList">
+          {!adminData && <Loader />}
           {adminData && linesMap(todayWorkingHours, date, linesData).length === 0 ? <h3 style={{ textAlign: "center" }}> אין תורים פנויים נסה תאריך אחר</h3> : adminData && linesMap(todayWorkingHours, date, linesData).map(l => <LineCard key={l} epochDate={l} />)}
         </div>
       </Slide>
