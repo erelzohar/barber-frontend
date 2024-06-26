@@ -4,9 +4,9 @@ import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDiss
 function NotFoundPage(): JSX.Element {
     return (
         <div className="NotFoundPage">
-			<h1><SentimentVeryDissatisfiedIcon fontSize="inherit" /></h1>
+			<SentimentVeryDissatisfiedIcon fontSize="inherit" />
 			<h3>הדף שחיפשת לא נמצא</h3>
-            <Link to="/">Back to home page</Link>
+            <Link to="/">חזרה לדף הבית</Link>
         </div>
     );
 }
