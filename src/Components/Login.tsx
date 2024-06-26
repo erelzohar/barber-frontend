@@ -55,7 +55,7 @@ function Login(): JSX.Element {
         transform: 'translate(-50%, -50%)',
         width: '90%',
         maxWidth: '400px',
-        bgcolor: '#ffffffa8',
+        bgcolor: '#fff',
         boxShadow: 24,
         p: 4,
         borderRadius: '7px',
@@ -82,7 +82,7 @@ function Login(): JSX.Element {
                     <form className="modalForm" id="login-form" noValidate onSubmit={handleSubmit(submit)}>
                         <TextField autoFocus dir="ltr" size="small" fullWidth margin="normal" required type="text" {...register("username")} id="username-input" error={errors.username ? true : false} helperText={errors.username?.message} label="שם משתמש"  />
                         <TextField dir="ltr" size="small" fullWidth margin="normal" required type="password" {...register("password")} id="password-input" error={errors.password ? true : false} helperText={errors.password?.message} label="סיסמא" />
-                        <Button fullWidth sx={{ margin: "1rem auto", borderRadius: '20px' }} type="submit" variant="contained" >התחבר</Button>
+                        <Button fullWidth sx={{ margin: "1rem 0 0 0", borderRadius: '10px',color:'#fff' }} type="submit" variant="contained" >התחבר</Button>
                     </form>
                 </Box>
             </Modal>

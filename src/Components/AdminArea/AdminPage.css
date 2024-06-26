@@ -1,5 +1,4 @@
 .AdminPage {
-    background: #ffffff;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -24,7 +23,6 @@
 .LinesList {
     height: 100%;
     min-height: 100vh;
-    background: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +34,7 @@
 }
 
 .AdminLineCard {
-    /* color: 	#2f2fd4a8; */
+    color: 	#ffffff6c;
     direction: rtl;
     margin: 1rem 5vw 1rem 5vw;
     padding: 1rem;
@@ -63,5 +61,17 @@
 
 }
 .dayDiv {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     margin-bottom: 1rem;
+}
+.AdminPage .adminWorkingDays{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding: auto;
 }

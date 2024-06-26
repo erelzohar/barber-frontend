@@ -31,22 +31,22 @@ function LineCard(props: Props) {
             errors: !values.name && !values.phoneNumber ? {
                 name: {
                     type: 'required',
-                    message: 'אנא מלא שם  .'
+                    message: 'אנא מלא שם '
                 },
                 phoneNumber: {
                     type: 'required',
-                    message: 'אנא מלא טלפון .'
+                    message: 'אנא מלא טלפון '
                 }
             }
                 : (!values.name || values.name.length < 2) ? {
                     name: {
                         type: 'required',
-                        message: 'אנא מלא שם  .'
+                        message: 'אנא מלא שם '
                     }
                 } : (!values.phoneNumber || !values.phoneNumber.match(/^05\d{8}$/)) ? {
                     phoneNumber: {
                         type: 'required',
-                        message: 'טלפון לא תקין .'
+                        message: 'טלפון לא תקין '
                     }
                 } : {},
         };
@@ -59,7 +59,7 @@ function LineCard(props: Props) {
             newLine.timestamp = props.epochDate.toString();
 
             const sms = new SMSModel();
-            sms.message = "הקוד שלך לקביעת התור הוא : " + randomNum;
+            sms.message = " לקביעת התור קוד האימות הוא: " + randomNum;
             sms.phoneNumber = newLine.phone;
             const res = await smsService.sendSMS(sms);
             if (res !== 200) return notify.custom("אירעה שגיאה נסה שוב מאוחר יותר");
@@ -95,7 +95,7 @@ function LineCard(props: Props) {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '80%',
-        maxWidth: '600px',
+        maxWidth: '400px',
         bgcolor: '#fff',
         boxShadow: 24,
         p: 3,
@@ -114,12 +114,15 @@ function LineCard(props: Props) {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style}>
+                <Box sx={style} className="lineCardBox">
                     <div style={{ display: formSteps === 1 ? "none" : "" }}>
                         <Typography id="modal-modal-title" variant="h6" component="h2" style={{ margin: "3px", direction: "rtl" }}>
                             <div className="lineDetails">
                                 <h3>יום {daysMap[date.getDay()]}</h3>
-                                <h3>{`${date.getDate()}.${(+date.getMonth() + 1)} - ${date.toTimeString().substring(0, 5)}`}</h3>
+                                <h3 id="lineCardDateTime">
+                                    <span>{date.getDate() + "." + (+date.getMonth() + 1)} <i className="fa fa-calendar" style={{color:"#737c6c"}} aria-hidden="true"></i></span>
+                                    <span>{date.toTimeString().substring(0, 5)} <i className="fa fa-clock-o" style={{color:"#737c6c"}} aria-hidden="true"></i></span>
+                                </h3>
                             </div>
                         </Typography>
                         <form className="modalForm" id="line-form" noValidate onSubmit={handleSubmit(submit)}>
@@ -138,7 +141,8 @@ function LineCard(props: Props) {
                                 error={errors.name ? true : false}
                                 helperText={errors.name?.message}
                                 label="שם"
-                                variant="standard"
+                                variant="outlined"
+                                size="small"
                             />
                             <TextField
                                 id="phoneNumber-input"
@@ -158,25 +162,27 @@ function LineCard(props: Props) {
                                 error={errors.phoneNumber ? true : false}
                                 helperText={errors.phoneNumber?.message}
                                 label="טלפון"
-                                variant="standard"
+                                variant="outlined"
+                                size="small"
                             />
-
-                            <Button sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success"><i className="fa fa-paper-plane" aria-hidden="true"></i> </Button>
+                            <Button sx={{ margin: "1rem 0 2rem 0", padding: "0.5rem 0", borderRadius: '10px' }} fullWidth type="submit" variant="contained" ><i className="fa fa-paper-plane" aria-hidden="true"></i> </Button>
                         </form>
                     </div>
                     <div style={{ display: formSteps === 0 ? "none" : "" }}>
                         <Fade>
                             <Typography id="modal-modal-title" variant="h6" component="h2" style={{ margin: "3px", direction: "rtl" }}>
-                                שלחנו לך קוד ב sms לצורך אימות:
+                                שלחנו לך קוד ב SMS לצורך אימות:
                             </Typography>
                             <TextField
                                 autoFocus
                                 focused
                                 fullWidth
+                                label="קוד אימות"
                                 margin="normal"
+                                size="small"
                                 onChange={(e => setVerifyCode(e.target.value))}
                             />
-                            <Button disabled={loading} onClick={async () => { verify() }} sx={{ margin: "1rem", padding: '0.5rem 2rem 0.5rem 2rem', borderRadius: '20px' }} type="submit" variant="contained" color="success">קבע תור</Button>
+                            <Button disabled={loading} onClick={async () => { verify() }} sx={{ margin: "1rem 0", color: '#fff', padding: '0.3rem 0', borderRadius: '7px' }} fullWidth className="gradient-bg" type="submit" variant="text">קבע תור</Button>
                         </Fade>
                     </div>
                 </Box>

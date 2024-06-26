@@ -21,7 +21,7 @@ function Header() {
         <a className="mobile-btn" href="#nav-wrap" title="Show navigation">
           Show navigation
         </a>
-        <a className="mobile-btn" href="#header" title="Hide navigation">
+        <a className="mobile-btn" href="#nav" title="Hide navigation">
           Hide navigation
         </a>
 
@@ -71,7 +71,7 @@ function Header() {
           <hr />
           <Fade triggerOnce direction="down" duration={2000}>
             <ul className="social">
-              <a href="#LinePicker" className="button btn project-btn smoothscroll">
+              <a href="#LinePicker" className="button btn project-btn smoothscroll gradient-bg">
                 להזמנת תור<i className="fa fa-book"></i>
               </a>
             </ul>

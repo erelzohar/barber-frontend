@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./AdminPage.css"
 import AdminModel from "../../Models/AdminModel";
 import store from "../../Redux/Store";
-import { Button, FormControl, Input, InputLabel, TextField, FormControlLabel, Switch, ToggleButtonGroup, ToggleButton } from "@mui/material";
+import { Button, FormControl,TextField, FormControlLabel, Switch, ToggleButtonGroup, ToggleButton } from "@mui/material";
 import adminService from "../../Services/Admin";
 import notify from "../../Services/Notify";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
@@ -74,7 +74,7 @@ function AdminPage(): JSX.Element {
     }
 
     return (
-        <div className="AdminPage">
+        <div className="AdminPage gradient-bg">
             <ToggleButtonGroup
                 color="primary"
                 value="settings"
@@ -103,23 +103,24 @@ function AdminPage(): JSX.Element {
                             const endMinutes = adminData.workingDays[i].split("-")[1].split(":")[1];
                             endDate = new Date().setHours(+endHours, +endMinutes);
                         }
-                        return <div className="dayDiv" key={i}>
-                            <h6>יום {d} :</h6>
-                            <Switch checked={adminData.workingDays[i] !== null} onChange={event => { handleDayOnOff(i) }} />
-                            <TimePicker disabled={!adminData.workingDays[i]} sx={{ maxWidth: "20vw" }} value={dayjs(startDate)}
-                                onAccept={(val: Dayjs) => handleHoursChange(val.hour() + ":" + (val.minute().toLocaleString().length === 1 ? "0" + val.minute().toLocaleString() : val.minute()), i, 0)}
-                            />
-                            <span style={{ fontSize: 60 }}> - </span>
-                            <TimePicker disabled={!adminData.workingDays[i]} sx={{ maxWidth: "20vw" }} value={dayjs(endDate)}
-                                onAccept={(val: Dayjs) => handleHoursChange(val.hour() + ":" + (val.minute().toLocaleString().length === 1 ? "0" + val.minute().toLocaleString() : val.minute()), i, 1)}
-                            />
-                        </div>
+                        return <>
+                            <h6 key={d}>יום {d} :</h6>
+                            <div className="dayDiv" key={i}>
+                                <Switch checked={adminData.workingDays[i] !== null} onChange={event => { handleDayOnOff(i) }} />
+                                <TimePicker disabled={!adminData.workingDays[i]} sx={{ maxWidth: "20vw" }} value={dayjs(startDate)}
+                                    onAccept={(val: Dayjs) => handleHoursChange(val.hour() + ":" + (val.minute().toLocaleString().length === 1 ? "0" + val.minute().toLocaleString() : val.minute()), i, 0)}
+                                />
+                                <span style={{ fontSize: 60 }}> - </span>
+                                <TimePicker disabled={!adminData.workingDays[i]} sx={{ maxWidth: "20vw" }} value={dayjs(endDate)}
+                                    onAccept={(val: Dayjs) => handleHoursChange(val.hour() + ":" + (val.minute().toLocaleString().length === 1 ? "0" + val.minute().toLocaleString() : val.minute()), i, 1)}
+                                />
+                            </div>
+                        </>
                     })}
                 </div>
                 <h4>זמן תור :</h4>
                 <FormControl sx={{ mb: 2 }}>
-                    <InputLabel>מספר דקות לכל תור :</InputLabel>
-                    <Input value={adminData.minutesPerLine} onChange={event => setAdminData(prev => ({ ...prev, minutesPerLine: +event.currentTarget.value }))} dir="ltr" margin="dense" required type="number" id="minutes-input" />
+                    <TextField value={adminData.minutesPerLine} onChange={event => setAdminData(prev => ({ ...prev, minutesPerLine: +event.currentTarget.value }))} label="מספר דקות לכל תור " dir="ltr" margin="dense" required type="number" id="minutes-input" variant="outlined"/>
                 </FormControl>
                 <div className="vacations-div">
                     <h4>חופשות  :</h4>

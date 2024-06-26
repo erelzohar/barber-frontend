@@ -17,7 +17,7 @@ function LinesList(): JSX.Element {
         return () => { clearInterval(interval); }
     }, [])
 
-    return <div className="LinesList">
+    return <div className="LinesList gradient-bg">
         <ToggleButtonGroup
             color="primary"
             value="lines"
