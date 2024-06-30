@@ -15,6 +15,7 @@ export default function CancelLine(): JSX.Element {
     const [date, setDate] = useState<Date>();
     const daysMap = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"];
     const timeToCancelLine = 3600000;
+    
     useEffect(() => {
         linesService.getLineById(lineId)
             .then(res => {
@@ -23,7 +24,6 @@ export default function CancelLine(): JSX.Element {
                     setLineToDelete(res);
                     setDate((new Date(+res.timestamp)));
                 }
-                else navigate("/*")
             })
     }, [params])
 

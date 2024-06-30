@@ -74,7 +74,7 @@ function AdminPage(): JSX.Element {
     }
 
     return (
-        <div className="AdminPage gradient-bg">
+        <div className="AdminPage">
             <ToggleButtonGroup
                 color="primary"
                 value="settings"
