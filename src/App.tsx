@@ -17,12 +17,10 @@ import CancelLine from './Components/CancelLine';
 
 function App() {
   useEffect(() => {
-    adminService.getCurrentAdminAsync();
-    linesService.getAllLinesAsync();
     ReactGA.initialize("UA-110570651-1");
     ReactGA.pageview(window.location.pathname);
-
   }, [])
+  
   return (
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="he">

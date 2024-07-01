@@ -1,8 +1,8 @@
 import { Zoom } from 'react-awesome-reveal';
 import LineModel from '../../Models/LineModel';
-import { Button, ButtonGroup, IconButton } from '@mui/material';
+import { ButtonGroup, IconButton } from '@mui/material';
 import linesService from '../../Services/Lines';
-import { Call, Cancel, WhatsApp } from '@mui/icons-material';
+import { Call, Cancel, WhatsApp,AccessTime,CalendarMonth } from '@mui/icons-material';
 
 interface AdminLineProps {
     line: LineModel;
@@ -18,9 +18,15 @@ export default function AdminLineCard(props: AdminLineProps) {
             {props.line &&
                 <div className="AdminLineCard">
                     <h3>{props.line.name}</h3>
-                    {isToday ? <h4>היום בשעה {date.toTimeString().substring(0, 5)}</h4> :
-                        <h4>יום {daysMap[date.getDay()]}{` ${date.getDate()}.${(+date.getMonth() + 1)} בשעה ${date.toTimeString().substring(0, 5)}`}</h4>}
-
+                    <div className="lineDetails">
+                        {isToday ? <h4>היום</h4> :
+                            <h4>יום {daysMap[date.getDay()]}</h4>}
+                        <h5>
+                            <span>{date.getDate() + "." + (+date.getMonth() + 1)}<CalendarMonth htmlColor='#737c6c'/> </span>
+                            <span>{date.toTimeString().substring(0, 5)} <AccessTime htmlColor='#737c6c'/></span>
+                            {/* {` ${date.getDate()}.${(+date.getMonth() + 1)} בשעה ${date.toTimeString().substring(0, 5)}`}</h4>} */}
+                        </h5>
+                    </div>
                     <div className="buttonsDiv" dir='ltr'>
                         <ButtonGroup orientation='vertical' variant="text" aria-label="Basic button group">
                             <IconButton onClick={async () => { await linesService.deleteLineAsync(props.line._id) }} title='ביטול' color='warning'><Cancel /></IconButton>
